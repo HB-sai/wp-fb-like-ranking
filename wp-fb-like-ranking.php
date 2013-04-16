@@ -80,7 +80,7 @@ class WpLikeRanking {
   function update_fb_like () {
     $WpFbLikeRankingUpdatePostNumber = get_option ('wp_fb_like_ranking_updatePostNumber');
     if ($WpFbLikeRankingUpdatePostNumber == 'all') {
-      $lastposts = get_posts('numberposts=0&post_type=post&post_status=');
+      $lastposts = get_posts('numberposts=-1');
     } else {
       $lastposts = get_posts('numberposts='.$WpFbLikeRankingUpdatePostNumber.'&orderby=post_date&order=DESC');
     }

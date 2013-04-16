@@ -2,32 +2,41 @@
 Contributors: MankinJp
 Donate link: 
 Tags: facebook, like, ranking, popular
-Requires at least: 
+Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.01
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-With this plugin, you can use a your posts' ranking rated by the number of Facebook like./
-ブログ内記事の、Facebookのいいね数に基づいたランキングを生成、表示するWordPressプラグインです。
+With this plugin, you can use a your posts' ranking rated by the number of Facebook like.
 
 == Description ==
 
-<h4>Features</h4>
-<ul>
-	<li><strong>Making a ranking rated by the number of Facebook like.</strong> You can make and use a ranking rated by the number of Facebook like width this plugin. It's good for visitors.</li>
-	<li><strong>Setting in detail.</strong> You can decide how often it will update the raning information and how many posts it will check when it updates the information.</li>
-</ul>
+= Features =
+
+* **Making a ranking rated by the number of Facebook like**. You can make and use a ranking rated by the number of Facebook like width this plugin. It's good for visitors.
+
+* **Setting in detail**. You can decide how often it will update the raning information and how many posts it will check when it updates the information.
 
 == Installation ==
 
-1. Download the plugin and extract its contents.
-2. Upload `wp-facebook-like-ranking` to the `/wp-content/plugins/` directory
-3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Configure items through the 'Settings->WP Facebook Like Ranking' menu in WordPres
-5. Place `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>` in your templates
+1. Download the plugin and extract its contents. / プラグインをダウンロード、解凍します。
+2. Upload `wp-facebook-like-ranking` to the `/wp-content/plugins/` directory. / `/wp-content/plugins/`ディレクトリにプラグインをアップロードします。
+3. Activate the plugin through the 'Plugins' menu in WordPress. / プラグインを有効化します。
+4. Configure items through the 'Settings->WP Facebook Like Ranking' menu in WordPres. / 'Settings->WP Facebook Like Ranking'で細かい設定を行います。
+5. Place `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>` in your templates. / `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>`を、ランキングを出したいところにコピペします。
+That's it!
 
-That' it!
+・more about function
+
+`get_like_ranking (int $post_number = 5, bool $post_count = true, array $thumbnail_size = null)`
+
+ex)
+
+`get_like_ranking (10, false, array(20, 20))`
+
+It shows 10 posts and 20px × 20px thumbnail picture without expressing like count.
+
 
 == Frequently asked questions ==
 
@@ -42,6 +51,9 @@ That' it!
 
 
 == Changelog ==
+
+= 1.01 =
+* Fix bug
 
 = 1.0 =
 * Public release

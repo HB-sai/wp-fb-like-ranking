@@ -1,10 +1,10 @@
 === WordPress Facebook Like Ranking ===
 Contributors: MankinJp
 Donate link: 
-Tags: facebook, like, ranking, popular
+Tags: plugin, facebook, like, ranking, popular
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.01
+Stable tag: 1.04
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,8 +23,10 @@ With this plugin, you can use a your posts' ranking rated by the number of Faceb
 1. Download the plugin and extract its contents. / プラグインをダウンロード、解凍します。
 2. Upload `wp-facebook-like-ranking` to the `/wp-content/plugins/` directory. / `/wp-content/plugins/`ディレクトリにプラグインをアップロードします。
 3. Activate the plugin through the 'Plugins' menu in WordPress. / プラグインを有効化します。
-4. Configure items through the 'Settings->WP Facebook Like Ranking' menu in WordPres. / 'Settings->WP Facebook Like Ranking'で細かい設定を行います。
-5. Place `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>` in your templates. / `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>`を、ランキングを出したいところにコピペします。
+4. Create a ranking by pushing a create button through the 'Settings->WP Facebook Like Ranking' menu in WordPres. / 'Settings->WP Facebook Like Ranking'でCreateボタンを押して最初のランキングを生成します。
+5. Configure items. / 'Settings->WP Facebook Like Ranking'で細かい設定を行います。
+6. Place `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>` in your templates. / `<?php if (function_exists('get_like_ranking')) get_like_ranking (); ?>`を、ランキングを出したいところにコピペします。
+
 That's it!
 
 ・more about function
@@ -51,6 +53,15 @@ It shows 10 posts and 20px × 20px thumbnail picture without expressing like cou
 
 
 == Changelog ==
+
+= 1.04 =
+* Change how to create ranking
+
+= 1.03 =
+* Fix bug
+
+= 1.02 =
+* Make thumbnail image clickable
 
 = 1.01 =
 * Fix bug

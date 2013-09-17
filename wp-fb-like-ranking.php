@@ -2,10 +2,10 @@
 /*
 Plugin Name: WP Facebook Like Ranking
 Plugin URI: http://wordpress.org/extend/plugins/wp-facebook-like-ranking/
-Description: facebookのいいね数に応じた、ブログ記事のランキングを生成します。
+Description: you can use a your posts' ranking rated by the number of Facebook like./facebookのいいね数に応じた、ブログ記事のランキングを生成します。
 Author: Taishi Kato
-Version: 1.04
-Author URI: http://taishikato.com/blog/
+Version: 1.1
+Author URI: http://taishikato.com/
 */
 
 $wplrank = new WpLikeRanking();
@@ -97,13 +97,21 @@ function set_likecount_meta () {
       $postId = $post->ID;
       // get the permalink
       $permalink = get_permalink($postId);
+      // FBからAPIで取得
       $xml = 'http://api.facebook.com/method/fql.query?query=select%20total_count%20from%20link_stat%20where%20url=%22'.$permalink.'%22';
       $result = file_get_contents ($xml);
       $result = simplexml_load_string ($result);
       $likeNumber = $result->link_stat->total_count;
       $likeNumber = (int) $likeNumber;
-      // Add Meta Data
-      add_post_meta($postId, 'wp_fb_like_count', $likeNumber, true);
+      $meta_values = get_post_meta($postId, 'wp_fb_like_count', true);
+      if($meta_values != '') {
+        if($meta_values != $likeNumber) {
+          update_post_meta($postId, 'wp_fb_like_count', $likeNumber, $meta_values); 
+        }
+      } else {
+        // Add Meta Data
+        add_post_meta($postId, 'wp_fb_like_count', $likeNumber, true);
+      }
     }
   }
 
@@ -124,9 +132,13 @@ function wp_fb_like_ranking_edit_setting () {
   include 'setting.html.php';
 }
 
-function get_like_ranking ($number = 5, $like_count = true, $thumbnail_size = null) {
+function get_like_ranking ($number = 5, $like_count = true, $thumbnail_size = null, $category_id = null) {
   $number = esc_html($number);
-  $rank = get_posts('meta_key=wp_fb_like_count&numberposts='.$number.'&orderby=meta_value_num');
+  if(!empty($category_id)) {
+    $rank = get_posts('meta_key=wp_fb_like_count&numberposts='.$number.'&orderby=meta_value_num&category='.$category_id);
+  } else {
+    $rank = get_posts('meta_key=wp_fb_like_count&numberposts='.$number.'&orderby=meta_value_num');
+  }
   echo '<ul class="wp-fb-like-ranking">';
   $i = 0;
   foreach($rank as $post) {
@@ -136,15 +148,15 @@ function get_like_ranking ($number = 5, $like_count = true, $thumbnail_size = nu
       $permalinkUrl = get_permalink ($post->ID);
       if ($like_count == true) {
         if ($thumbnail_size == null) {
-          echo '<li><a href="'.$permalinkUrl.'">'.esc_html($post->post_title).'</a> <span class="wp-fb-like-ranking-count">'.$likeNumberToPost.'</span></li>';
+          echo '<li><a href="'.$permalinkUrl.'" title="'.$post->post_title.'">'.esc_html($post->post_title).'</a> <span class="wp-fb-like-ranking-count">'.$likeNumberToPost.'</span></li>';
         } else {
-          echo '<li><a href="'.$permalinkUrl.'">'.get_the_post_thumbnail( $post->ID, $thumbnail_size ).esc_html($post->post_title).'</a> <span class="wp-fb-like-ranking-count">'.$likeNumberToPost.'</span></li>';
+          echo '<li><a href="'.$permalinkUrl.'" title="'.$post->post_title.'">'.get_the_post_thumbnail( $post->ID, $thumbnail_size ).esc_html($post->post_title).'</a> <span class="wp-fb-like-ranking-count">'.$likeNumberToPost.'</span></li>';
         }
       } else {
         if ($thumbnail_size == null) {
-          echo '<li><a href="'.$permalinkUrl.'">'.esc_html($post->post_title).'</a></li>';
+          echo '<li><a href="'.$permalinkUrl.'" title="'.$post->post_title.'">'.esc_html($post->post_title).'</a></li>';
         } else {
-          echo '<li><a href="'.$permalinkUrl.'">'.get_the_post_thumbnail( $post->ID, $thumbnail_size ).esc_html($post->post_title).'</a></li>';
+          echo '<li><a href="'.$permalinkUrl.'" title="'.$post->post_title.'">'.get_the_post_thumbnail( $post->ID, $thumbnail_size ).esc_html($post->post_title).'</a></li>';
         }
       }
     }

@@ -2,9 +2,9 @@
 Contributors: MankinJp
 Donate link: 
 Tags: plugin, facebook, like, ranking, popular
-Requires at least: 2.8
+Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.04
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,8 @@ With this plugin, you can use a your posts' ranking rated by the number of Faceb
 
 * **Setting in detail**. You can decide how often it will update the raning information and how many posts it will check when it updates the information.
 
+* **Category filter**. You can create rankings which have only specific category posts.
+
 == Installation ==
 
 1. Download the plugin and extract its contents. / プラグインをダウンロード、解凍します。
@@ -29,16 +31,21 @@ With this plugin, you can use a your posts' ranking rated by the number of Faceb
 
 That's it!
 
-・more about function
+・more about a function
 
-`get_like_ranking (int $post_number = 5, bool $post_count = true, array $thumbnail_size = null)`
+`get_like_ranking (int $post_number = 5, bool $post_count = true, array $thumbnail_size = null, int $category_id = null)`
 
-ex)
+ex1)
 
 `get_like_ranking (10, false, array(20, 20))`
 
 It shows 10 posts and 20px × 20px thumbnail picture without expressing like count.
 
+ex2)
+
+`get_like_ranking (10, false, null, 1)`
+
+It shows 10 posts of a category which has id 1.
 
 == Frequently asked questions ==
 
@@ -48,11 +55,19 @@ It shows 10 posts and 20px × 20px thumbnail picture without expressing like cou
 
 == Screenshots ==
 
-1. WordPress Facebook Like Ranking on theme's sidebar.
+1. A example of using WordPress Facebook Like Ranking.
 2. WordPress Facebook Like Ranking Stats panel.
 
 
 == Changelog ==
+
+= 1.11 =
+* Just add a title property
+= 1.1 = 
+* Add a category filter.
+
+= 1.05 = 
+* Able to recreate the ranking
 
 = 1.04 =
 * Change how to create ranking

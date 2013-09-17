@@ -9,7 +9,7 @@
 					<p>このプラグインを有効化した後に一度だけこの作業が必要です。<br />一度この作業をしてしまえば、プラグインを無効にしない限り、二度とこの作業をする必要はありません。<br />記事数によっては1分ほどかかる場合もあります。</p>
 					<p>（You need to do this just once.）</p>
 					<input name="create" type="hidden" value="create" id="create" />
-					<input type="submit" value="Create" class="button" />
+					<input type="submit" value="Create or Recreate" class="button" />
 				</td>
 			</tr>
 		</table>

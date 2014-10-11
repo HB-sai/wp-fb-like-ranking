@@ -2,8 +2,8 @@
 
 Facebookのいいね数に基づいたブログ内の記事のランキングを表示するWordPressプラグインです。
 
-僕のブログでも使用していますのでどのように表示されるのか気になる方は見てみてください。
-<a href="http://taishikato.com/blog/" target="_blank">ブログ</a>
+使用例）btrax（ビートラックス）という企業のサイドバーです。
+<a href="http://blog.btrax.com/jp/2014/10/08/post-jpn7-tokyo/" target="_blank"></a>
 
 <h2>使い方</h2>
 

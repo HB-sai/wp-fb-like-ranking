@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-facebook-like-ranking\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2013-12-28 15:02+0900\n"
+"PO-Revision-Date: 2014-10-11 22:42+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Language: ja_JP\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp-fb-like-ranking.php:167
+#: wp-fb-like-ranking.php:189
 msgid "No post liked."
 msgstr "いいねを押されている記事はまだありません"
 
@@ -85,23 +85,23 @@ msgstr "設定を保存"
 msgid "Title:"
 msgstr "タイトル："
 
-#: widget.php:38
+#: widget.php:39
 msgid "Setting"
 msgstr "設定"
 
-#: widget.php:41
+#: widget.php:42
 msgid "Show Up To:"
 msgstr "表示する記事数："
 
-#: widget.php:46
+#: widget.php:47
 msgid "Show The Like Count:"
 msgstr "いいね数を表示："
 
-#: widget.php:51
+#: widget.php:52
 msgid "Shorten Title To:"
 msgstr "タイトルを短縮："
 
-#: widget.php:56
+#: widget.php:57
 msgid "Category ID:"
 msgstr "カテゴリーID："
 
@@ -109,10 +109,14 @@ msgstr "カテゴリーID："
 msgid "Thumbnail Setting"
 msgstr "サムネイルの設定"
 
-#: widget.php:63
+#: widget.php:64
 msgid "Width:"
 msgstr "幅："
 
-#: widget.php:68
+#: widget.php:69
 msgid "Height:"
 msgstr "高さ："
+
+#: widget.php:74
+msgid "Custom Post Name:"
+msgstr "カスタム投稿名："

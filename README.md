@@ -3,7 +3,7 @@
 Facebookのいいね数に基づいたブログ内の記事のランキングを表示するWordPressプラグインです。
 
 使用例）btrax（ビートラックス）という企業のサイドバーです。
-<a href="http://blog.btrax.com/jp/2014/10/08/post-jpn7-tokyo/" target="_blank"></a>
+<a href="http://blog.btrax.com/jp/2014/10/08/post-jpn7-tokyo/" target="_blank">freshtrax | btrax スタッフブログ</a>
 
 <h2>使い方</h2>
 
